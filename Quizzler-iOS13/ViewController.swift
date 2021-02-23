@@ -9,28 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var trueButton: UIButton!
+    @IBOutlet var falseButton: UIButton!
     
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
     
     
+    let quiz = ["Four + two is qual to six.", "Five  - Three is greater than One", "Three + Eight is less than Ten"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        questionLabel.text = "test"
+        questionLabel.text = quiz[0]
     }
 
-    @IBAction func answerButtonPressed(_ sender: UIButton) {
-        
-        
-    }
     
     
-    
-    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {}
 }
-
