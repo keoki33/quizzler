@@ -24,18 +24,19 @@ class ViewController: UIViewController {
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        quizBrian.checkAnswer(userAnswer)
+        let userGotItRight = quizBrian.checkAnswer(userAnswer)
         
         
         
-        if userAnswer == actualAnswer { sender.backgroundColor = UIColor.green } else { sender.backgroundColor = UIColor.red }
+        if userGotItRight { sender.backgroundColor = UIColor.green } else { sender.backgroundColor = UIColor.red }
         questionNumber = questionNumber == (quiz.count - 1) ? 0 : questionNumber + 1
         _ = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
 
     @objc func updateUI() {
-        questionLabel.text = quiz[questionNumber].text
-        progressBar.progress = Float(questionNumber + 1) / Float(quiz.count)
+        questionLabel.text = quizBrian.getQuestionText()
+
+        progressBar.progress = quizBrian.getProgress()
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
     }
