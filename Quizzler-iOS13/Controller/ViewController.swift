@@ -26,10 +26,11 @@ class ViewController: UIViewController {
         let userAnswer = sender.currentTitle!
         let userGotItRight = quizBrian.checkAnswer(userAnswer)
         
-        
-        
         if userGotItRight { sender.backgroundColor = UIColor.green } else { sender.backgroundColor = UIColor.red }
-        questionNumber = questionNumber == (quiz.count - 1) ? 0 : questionNumber + 1
+
+        
+
+        
         _ = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
 
