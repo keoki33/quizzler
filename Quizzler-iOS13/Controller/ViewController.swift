@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var trueButton: UIButton!
     @IBOutlet var falseButton: UIButton!
-
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     var quizBrian = QuizBrain()
 
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
         
         if userGotItRight { sender.backgroundColor = UIColor.green } else { sender.backgroundColor = UIColor.red }
 
-        
+        quizBrian.nextQuestion()
 
         
         _ = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
         questionLabel.text = quizBrian.getQuestionText()
 
         progressBar.progress = quizBrian.getProgress()
+        scoreLabel.text = "Score: \(quizBrian.getScore())"
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
     }
