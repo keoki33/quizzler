@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
-    @IBOutlet var trueButton: UIButton!
+    @IBOutlet var choice2button: UIButton!
     @IBOutlet var falseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var choice1button: UIButton!
     
     var quizBrian = QuizBrain()
 
@@ -37,10 +38,10 @@ class ViewController: UIViewController {
 
     @objc func updateUI() {
         questionLabel.text = quizBrian.getQuestionText()
-
+        
         progressBar.progress = quizBrian.getProgress()
         scoreLabel.text = "Score: \(quizBrian.getScore())"
-        trueButton.backgroundColor = UIColor.clear
+        choice2button.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
     }
 }
