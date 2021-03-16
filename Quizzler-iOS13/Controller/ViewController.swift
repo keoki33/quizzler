@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var choice2button: UIButton!
-    @IBOutlet var falseButton: UIButton!
+    @IBOutlet var choice3button: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var choice1button: UIButton!
     
@@ -38,10 +38,16 @@ class ViewController: UIViewController {
 
     @objc func updateUI() {
         questionLabel.text = quizBrian.getQuestionText()
-        
+        choice1button.setTitle(quizBrian.getAnswerText(number: 1), for: .normal)
+        choice2button.setTitle(quizBrian.getAnswerText(number: 2), for: .normal)
+        choice3button.setTitle(quizBrian.getAnswerText(number: 3), for: .normal)
         progressBar.progress = quizBrian.getProgress()
+//        progressBar.progress = 1.0
+        
         scoreLabel.text = "Score: \(quizBrian.getScore())"
+        choice1button.backgroundColor = UIColor.clear
         choice2button.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        choice3button.backgroundColor = UIColor.clear
+        print(quizBrian.getProgress())
     }
 }
